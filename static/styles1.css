@@ -1,0 +1,75 @@
+/* สไตล์พื้นฐานสำหรับ body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* พื้นหลังสีเทาอ่อน */
+}
+
+/* สไตล์สำหรับ h1 */
+h1 {
+    text-align: center; /* จัดให้อยู่กลาง */
+    color: #333; /* สีตัวอักษรเข้ม */
+    margin-top: 20px; /* เพิ่มพื้นที่ด้านบน */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+form {
+    max-width: 400px; /* กำหนดความกว้างสูงสุด */
+    margin: 20px auto; /* จัดให้อยู่กลาง */
+    padding: 20px; /* เพิ่มพื้นที่ด้านใน */
+    background: white; /* พื้นหลังสีขาว */
+    border-radius: 10px; /* มุมมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+/* สไตล์สำหรับ label */
+label {
+    display: block; /* แสดงเป็นบล็อก */
+    margin: 10px 0 5px; /* เพิ่มพื้นที่ด้านบนและด้านล่าง */
+    color: #555; /* สีตัวอักษรเข้ม */
+}
+
+/* สไตล์สำหรับ input text และ input file */
+input[type="text"],
+input[type="file"] {
+    width: 100%; /* ความกว้างเต็ม */
+    padding: 10px; /* เพิ่มพื้นที่ด้านใน */
+    border: 1px solid #ccc; /* เส้นขอบสีเทา */
+    border-radius: 5px; /* มุมมน */
+    box-sizing: border-box; /* เพื่อให้ความกว้างรวมกับ padding */
+}
+
+/* สไตล์สำหรับปุ่ม */
+button {
+    background-color: #4CAF50; /* สีเขียว */
+    color: white; /* สีตัวอักษรขาว */
+    border: none; /* ไม่มีกรอบ */
+    padding: 10px; /* เพิ่มพื้นที่ด้านใน */
+    text-align: center; /* จัดให้อยู่กลาง */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+    display: inline-block; /* แสดงเป็นบล็อก */
+    margin: 10px 0; /* เพิ่มพื้นที่ด้านนอก */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์ */
+    border-radius: 5px; /* มุมมน */
+    width: 100%; /* ความกว้างเต็ม */
+}
+
+/* สไตล์สำหรับปุ่มเมื่อชี้เมาส์ */
+button:hover {
+    background-color: #45a049; /* สีเขียวเข้มขึ้นเมื่อชี้ */
+}
+
+/* สไตล์สำหรับลิงค์ */
+a {
+    display: block; /* แสดงเป็นบล็อก */
+    text-align: center; /* จัดให้อยู่กลาง */
+    margin-top: 20px; /* เพิ่มพื้นที่ด้านบน */
+    color: #007BFF; /* สีน้ำเงิน */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+}
+
+/* สไตล์สำหรับลิงค์เมื่อชี้เมาส์ */
+a:hover {
+    text-decoration: underline; /* เพิ่มเส้นใต้เมื่อชี้ */
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Center elements vertically */
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px; /* Space below heading */
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px; /* Increased border radius */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            width: 300px;
+            transition: box-shadow 0.3s; /* Smooth shadow transition */
+        }
+
+        form:hover {
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s; /* Transition for input focus */
+        }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus {
+            border-color: #5cb85c; /* Highlight border on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold; /* Make button text bold */
+            transition: background-color 0.3s; /* Smooth button color transition */
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .button-link {
+            display: inline-block; /* Align button with other elements */
+            background-color: #007BFF; /* Bootstrap primary color */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none; /* No underline */
+            text-align: center;
+            transition: background-color 0.3s; /* Smooth link hover effect */
+            margin-top: 10px; /* Space above link */
+        }
+
+        .button-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .message {
+            margin-top: 10px;
+            text-align: center;
+            color: #d9534f; /* Red color for error messages */
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Person</h1>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <label for="name">Name (Folder Name):</label>
+        <input type="text" id="name" name="name" required placeholder="Enter folder name...">
+
+        <label for="image">Upload Images:</label>
+        <input type="file" id="image" name="image" accept="image/*" required multiple>
+
+        <button type="submit">Register</button>
+        <a href="http://127.0.0.1:5008" class="button-link">CCTV</a>
+    </form>
+    <div class="message" id="message"></div>
+
+    <script>
+        // Optional: JavaScript to handle form submission and display messages
+        const form = document.querySelector('form');
+        const messageDiv = document.getElementById('message');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.style.color = 'green';
+                    messageDiv.textContent = data.message || 'Registration successful!';
+                    // Redirect to the CCTV page after successful registration
+                    window.location.href = 'http://127.0.0.1:5001';
+                } else {
+                    messageDiv.style.color = 'red';
+                    messageDiv.textContent = data.message || 'An error occurred!';
+                }
+            } catch (error) {
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = 'An error occurred during registration!';
+            }
+        };
+    </script>
+</body>
+</html>
